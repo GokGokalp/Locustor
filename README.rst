@@ -7,9 +7,10 @@ Locustor is a simple Python scheduled worker which sends Locust load testing log
 Usage
 -----
 
-Just configure to _LocustorConfig_ class.
+Just configure to LocustorConfig class
 
 .. code-block:: python
+
     class LocustorConfig:
         'Locustor configuration'
         INFLUXDB_HOST = ''
