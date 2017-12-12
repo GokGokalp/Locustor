@@ -1,5 +1,6 @@
 'log_helper.py'
 
+from datetime import datetime
 import json
 import csvmapper
 from locustor_config import LocustorConfig
@@ -12,7 +13,7 @@ class LogHelper:
     locust_csv_file_path = ''
 
     def __init__(self):
-        self.locust_csv_file_path = LocustorConfig().LOCUST_CSV_LOG_FILE_PATH
+        self.locust_csv_file_path = LocustorConfig.LOCUST_CSV_LOG_FILE_PATH
         if self.locust_csv_file_path is '':
             raise Exception('LOCUST_CSV_LOG_FILE_PATH cannot be empty!')
 
@@ -33,10 +34,10 @@ class LogHelper:
             json_body = {
                 "measurement": json_log['Name'],
                 "tags": {
-                    "host": "server01",
-                    "region": "us-west"
+                    "host": LocustorConfig.HOST,
+                    "region": LocustorConfig.REGION
                 },
-                "time": "2009-11-10T23:00:00Z",
+                "time": datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ'),
                 "fields": {
                     "Method": json_log['Method'],
                     "Name": json_log['Name'],

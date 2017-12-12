@@ -9,3 +9,5 @@ class LocustorConfig:
     INFLUXDB_DATABASE = ''
     DELAY_IN_SEC = 5
     LOCUST_CSV_LOG_FILE_PATH = ''
+    HOST = ''
+    REGION = ''
